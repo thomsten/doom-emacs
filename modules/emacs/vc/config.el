@@ -23,7 +23,7 @@
 (defun +vc|enforce-git-commit-conventions ()
   "See https://chris.beams.io/posts/git-commit/"
   (setq fill-column 72
-        git-commit-summary-max-length 50
+        git-commit-summary-max-length 68
         git-commit-style-convention-checks '(overlong-summary-line non-empty-second-line)))
 (add-hook 'git-commit-mode-hook #'+vc|enforce-git-commit-conventions)
 
