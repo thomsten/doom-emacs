@@ -93,5 +93,7 @@
 
 ;; Delete selection when entering text.
 (delete-selection-mode 1)
+;; Don't put the deleted selection on the kill ring, that's just annoying.
+(delete-selection-helper 'kill)
 
 (provide '+bindings)
