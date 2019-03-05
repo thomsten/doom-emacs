@@ -91,9 +91,13 @@
 ;; Real emacs knights don't use shift to mark things
 (setq shift-select-mode nil)
 
+
+(make-variable-buffer-local 'transient-mark-mode)
+(put 'transient-mark-mode 'permanent-local t)
+(setq-default transient-mark-mode t)
+
 ;; Delete selection when entering text.
 (delete-selection-mode 1)
-;; Don't put the deleted selection on the kill ring, that's just annoying.
-(delete-selection-helper 'kill)
+(require 'delsel)
 
 (provide '+bindings)
