@@ -62,7 +62,7 @@ is deferred until the file is saved. Respects `git-gutter:disabled-modes'."
   ;; standardize default fringe width
   (if (fboundp 'fringe-mode) (fringe-mode '4))
   :config
-  (set-popup-rule! "^\\*git-gutter" :select nil :size '+popup-shrink-to-fit)
+  (when (featurep! popup (set-popup-rule! "^\\*git-gutter" :select nil :size '+popup-shrink-to-fit)))
 
   ;; Update git-gutter on focus (in case I was using git externally)
   (add-hook 'focus-in-hook #'git-gutter:update-all-windows)

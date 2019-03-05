@@ -65,6 +65,15 @@ otherwise in default state."
                  (bobp) (eolp))
         (evil-insert-state)))))
 
+;; `vc-annotate'
+(after! vc-annotate
+  (when (featurep! popup (set-popup-rules!
+                          '(("^\\vc-d" :select nil) ; *vc-diff*
+                            ("^\\vc-c" :select t))))) ; *vc-change-log*
+  (set-evil-initial-state!
+    '(vc-annotate-mode vc-git-log-view-mode)
+    'normal))
+
 
 (after! smerge-mode
   (unless EMACS26+

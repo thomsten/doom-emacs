@@ -47,7 +47,7 @@ It is passed a user and repository name.")
   ;;    status screen.
   (setq transient-display-buffer-action '(display-buffer-below-selected)
         magit-display-buffer-function #'+magit-display-buffer-fn)
-  (set-popup-rule! "^\\(?:\\*magit\\|magit:\\| \\*transient\\*\\)" :ignore t)
+  (when (featurep! popup (set-popup-rule! "^\\(?:\\*magit\\|magit:\\| \\*transient\\*\\)" :ignore t)))
 
   ;; Add --tags switch
   (transient-append-suffix 'magit-fetch "-p"

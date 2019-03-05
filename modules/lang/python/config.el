@@ -95,7 +95,7 @@ called.")
     :definition #'anaconda-mode-find-definitions
     :references #'anaconda-mode-find-references
     :documentation #'anaconda-mode-show-doc)
-  (set-popup-rule! "^\\*anaconda-mode" :select nil)
+  (when (featurep! popup (set-popup-rule! "^\\*anaconda-mode" :select nil)))
 
   (add-hook! 'python-mode-local-vars-hook
     (defun +python-init-anaconda-mode-maybe-h ()
@@ -142,7 +142,7 @@ called.")
   :preface (defvar nose-mode-map (make-sparse-keymap))
   :minor ("/test_.+\\.py$" . nose-mode)
   :config
-  (set-popup-rule! "^\\*nosetests" :size 0.4 :select nil)
+  (when (featurep! (set-popup-rule! "^\\*nosetests" :size 0.4 :select nil)))
   (set-yas-minor-mode! 'nose-mode)
   (when (featurep 'evil)
     (add-hook 'nose-mode-hook #'evil-normalize-keymaps))
