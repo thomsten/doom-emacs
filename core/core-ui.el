@@ -248,7 +248,7 @@ size.")
 ;; Line numbers
 
 ;; line numbers in most modes
-(add-hook! (prog-mode text-mode conf-mode) #'display-line-numbers-mode)
+;(add-hook! (prog-mode text-mode conf-mode) #'display-line-numbers-mode)
 
 (defun doom|enable-line-numbers ()  (display-line-numbers-mode +1))
 (defun doom|disable-line-numbers () (display-line-numbers-mode -1))
