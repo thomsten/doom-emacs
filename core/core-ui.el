@@ -488,8 +488,9 @@ treat Emacs as a non-application window."
 (setq-default display-line-numbers-width 3)
 
 ;; line numbers in most modes
-(add-hook! '(prog-mode-hook text-mode-hook conf-mode-hook)
-           #'display-line-numbers-mode)
+;(add-hook! '(prog-mode-hook text-mode-hook conf-mode-hook)
+;           #'display-line-numbers-mode)
+
 
 (defun doom-enable-line-numbers-h ()  (display-line-numbers-mode +1))
 (defun doom-disable-line-numbers-h () (display-line-numbers-mode -1))
