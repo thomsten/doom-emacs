@@ -53,14 +53,14 @@ be negative.")
     [remap projectile-switch-to-buffer] #'helm-projectile-switch-to-buffer
     [remap recentf-open-files]        #'helm-recentf)
 
-  (define-key! helm-map
-    [tab] #'helm-execute-persistent-action)
-
   :config
   (helm-mode +1)
   ;; helm is too heavy for `find-file-at-point'
   (add-to-list 'helm-completing-read-handlers-alist (cons #'find-file-at-point nil)))
 
+(after! helm
+  (define-key! helm-map
+    [tab] #'helm-execute-persistent-action))
 
 (use-package! helm
   :after helm-mode
