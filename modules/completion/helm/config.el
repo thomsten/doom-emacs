@@ -113,7 +113,7 @@ be negative.")
           helm-semantic-fuzzy-match fuzzy))
 
   :config
-  (set-popup-rule! "^\\*helm" :vslot -100 :size 0.22 :ttl nil)
+  (when (featurep! popup (set-popup-rule! "^\\*helm" :vslot -100 :size 0.22 :ttl nil)))
 
   ;; Hide the modeline
   (defun +helm|hide-mode-line (&rest _)
@@ -145,7 +145,7 @@ be negative.")
 (after! helm-ag
   (map! :map helm-ag-edit-map :n "RET" #'compile-goto-error)
   (define-key helm-ag-edit-map [remap quit-window] #'helm-ag--edit-abort)
-  (set-popup-rule! "^\\*helm-ag-edit" :size 0.35 :ttl 0 :quit nil)
+  (when (featurep! popup (set-popup-rule! "^\\*helm-ag-edit" :size 0.35 :ttl 0 :quit nil)))
   ;; Recenter after jumping to match
   (advice-add #'helm-ag--find-file-action :after-while #'doom*recenter)
   ;; And record position before jumping
