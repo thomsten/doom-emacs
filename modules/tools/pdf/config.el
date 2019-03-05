@@ -33,7 +33,8 @@
   (when (or (featurep! :ui doom-modeline) (featurep! :ui modeline))
     (load! "+modeline"))
   ;; Handle PDF-tools related popups better
-  (set-popup-rule! "^\\*Outline*" :side 'right :size 40 :select nil)
+  (when (featurep! popup
+                   (set-popup-rule! "^\\*Outline*" :side 'right :size 40 :select nil)))
   ;; TODO: Add additional important windows that should be handled differently
   ;; TODO: These two next rules don't work (they should), investigate
   ;; (set-popup-rule! "\\*Contents\\*" :side 'right :size 40)

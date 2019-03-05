@@ -45,7 +45,7 @@ to the right fringe.")
   ;; standardize default fringe width
   (if (fboundp 'fringe-mode) (fringe-mode '4))
   :config
-  (set-popup-rule! "^\\*git-gutter" :select nil)
+  (when (featurep! popup (set-popup-rule! "^\\*git-gutter" :select nil)))
 
   ;; Update git-gutter on focus (in case I was using git externally)
   (add-hook 'focus-in-hook #'git-gutter:update-all-windows)

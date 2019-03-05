@@ -74,7 +74,7 @@ called.")
     :definition #'anaconda-mode-find-definitions
     :references #'anaconda-mode-find-references
     :documentation #'anaconda-mode-show-doc)
-  (set-popup-rule! "^\\*anaconda-mode" :select nil)
+  (when (featurep! popup (set-popup-rule! "^\\*anaconda-mode" :select nil)))
 
   (defun +python|auto-kill-anaconda-processes ()
     "Kill anaconda processes if this buffer is the last python buffer."
@@ -102,7 +102,7 @@ called.")
   :preface (defvar nose-mode-map (make-sparse-keymap))
   :init (associate! nose-mode :match "/test_.+\\.py$" :modes (python-mode))
   :config
-  (set-popup-rule! "^\\*nosetests" :size 0.4 :select nil)
+  (when (featurep! (set-popup-rule! "^\\*nosetests" :size 0.4 :select nil)))
   (set-yas-minor-mode! 'nose-mode)
   (when (featurep 'evil)
     (add-hook 'nose-mode-hook #'evil-normalize-keymaps))

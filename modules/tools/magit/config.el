@@ -28,7 +28,8 @@ what features are available.")
         magit-display-buffer-function #'+magit-display-buffer
         magit-popup-display-buffer-action '((+magit-display-popup-buffer)))
 
-  (set-popup-rule! "^\\(?:\\*magit\\|magit:\\)" :ignore t)
+  (when (featurep! popup
+                   (set-popup-rule! "^\\(?:\\*magit\\|magit:\\)" :ignore t)))
 
   ;; so magit buffers can be switched to (except for process buffers)
   (defun +magit-buffer-p (buf)

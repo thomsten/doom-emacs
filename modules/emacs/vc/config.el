@@ -44,9 +44,9 @@ otherwise in default state."
 
 ;; `vc-annotate'
 (after! vc-annotate
-  (set-popup-rules!
-    '(("^\\vc-d" :select nil) ; *vc-diff*
-      ("^\\vc-c" :select t))) ; *vc-change-log*
+  (when (featurep! popup (set-popup-rules!
+                          '(("^\\vc-d" :select nil) ; *vc-diff*
+                            ("^\\vc-c" :select t))))) ; *vc-change-log*
   (set-evil-initial-state!
     '(vc-annotate-mode vc-git-log-view-mode)
     'normal))
