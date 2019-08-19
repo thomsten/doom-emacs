@@ -26,7 +26,7 @@
   :defer t
   :init
   (unless doom-theme
-    (setq doom-theme 'doom-molokai))
+    (setq doom-theme 'leuven))
   ;; improve integration w/ org-mode
   (add-hook 'doom-load-theme-hook #'doom-themes-org-config)
   ;; more Atom-esque file icons for neotree/treemacs
