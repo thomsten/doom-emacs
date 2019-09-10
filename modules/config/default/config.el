@@ -363,4 +363,4 @@
 
 (if (featurep 'evil)
     (load! "+evil")
-  (load! "+emacs"))
+  (load! "+bindings"))

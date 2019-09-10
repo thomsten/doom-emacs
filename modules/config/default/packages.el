@@ -3,6 +3,8 @@
 
 (package! avy)
 (package! ace-link)
+(package! framemove)
+(package! windmove)
 
 (unless (featurep! :editor evil)
   (package! expand-region))
