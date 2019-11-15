@@ -49,3 +49,6 @@
   (package! centered-window :recipe (:host github :repo "anler/centered-window-mode"))
   (package! org-tree-slide)
   (package! ox-reveal))
+
+(when (featurep! +ox-gfm)
+  (package! ox-gfm))

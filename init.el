@@ -59,3 +59,6 @@
 (doom-initialize)
 (doom-initialize-core)
 (doom-initialize-modules)
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'erase-buffer 'disabled nil)
